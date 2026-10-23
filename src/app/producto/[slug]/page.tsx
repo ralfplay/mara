@@ -17,7 +17,7 @@ export async function generateMetadata({
 }: PageProps<"/producto/[slug]">): Promise<Metadata> {
   const product = getProduct((await params).slug);
   if (!product) return {};
-  return { title: `${product.name} | MARA`, description: product.description };
+  return { title: product.name, description: product.description };
 }
 
 export default async function ProductPage({

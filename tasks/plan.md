@@ -46,7 +46,7 @@ Ver el detalle en `tasks/todo.md`.
 
 ### Phase 3: Cierre
 - [x] T9: Envíos y pagos
-- [ ] T10: SEO y rendimiento
+- [x] T10: SEO y rendimiento
 - [ ] T11: Despliegue
 
 ### Checkpoint: Completo

@@ -5,7 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import { categories, products } from "@/data/products";
 
 export const metadata: Metadata = {
-  title: "Catálogo | MARA",
+  title: "Catálogo",
   description: "Aretes, collares y pulseras MARA.",
 };
 

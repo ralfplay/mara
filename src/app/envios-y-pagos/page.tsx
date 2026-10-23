@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { instagramUrl, whatsappUrl } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Envíos y pagos | MARA",
+  title: "Envíos y pagos",
   description:
     "Formas de pago, delivery en la ciudad y envíos a provincias de MARA.",
 };

@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import CartView from "@/components/CartView";
 
 export const metadata: Metadata = {
-  title: "Carrito | MARA",
+  title: "Carrito",
+  description: "Revisa tu pedido y envíalo por WhatsApp.",
+  robots: { index: false },
 };
 
 export default function CartPage() {
