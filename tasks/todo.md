@@ -27,9 +27,9 @@ Verificación estándar en todas: `npm run lint` y `npm run build` sin errores.
 ## Task 3: Inicio
 **Description:** Portada, categorías y productos destacados usando el catálogo, con un componente reutilizable de tarjeta de producto.
 **Acceptance criteria:**
-- [ ] La portada tiene botón hacia el catálogo
-- [ ] Las 3 categorías enlazan al catálogo filtrado
-- [ ] Los destacados salen de `products.ts` y muestran nombre, precio y "Agotado" si no hay stock
+- [x] La portada tiene botón hacia el catálogo
+- [x] Las 3 categorías enlazan al catálogo filtrado
+- [x] Los destacados salen de `products.ts` y muestran nombre, precio y "Agotado" si no hay stock
 **Verification:** revisión manual en móvil y escritorio.
 **Dependencies:** T1, T2
 **Files likely touched:** `src/app/page.tsx`, `src/components/ProductCard.tsx`

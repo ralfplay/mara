@@ -1,5 +1,11 @@
 export type Category = "aretes" | "collares" | "pulseras";
 
+export const categories: { slug: Category; label: string }[] = [
+  { slug: "aretes", label: "Aretes" },
+  { slug: "collares", label: "Collares" },
+  { slug: "pulseras", label: "Pulseras" },
+];
+
 export type Product = {
   slug: string;
   name: string;
