@@ -38,9 +38,9 @@ Verificación estándar en todas: `npm run lint` y `npm run build` sin errores.
 ## Task 4: Catálogo con filtro
 **Description:** Página `/catalogo` con todos los productos y filtro por categoría mediante la URL (`?categoria=aretes`).
 **Acceptance criteria:**
-- [ ] Sin filtro muestra todos; con filtro, solo esa categoría
-- [ ] El filtro funciona sin JavaScript (enlaces) y marca la categoría activa
-- [ ] Una categoría inexistente muestra todos los productos
+- [x] Sin filtro muestra todos; con filtro, solo esa categoría
+- [x] El filtro funciona con enlaces normales (sin estado de cliente) y marca la categoría activa
+- [x] Una categoría inexistente muestra todos los productos
 **Verification:** revisión manual de las 4 vistas.
 **Dependencies:** T1, T2, T3 (reutiliza `ProductCard`)
 **Files likely touched:** `src/app/catalogo/page.tsx`, `src/components/CategoryFilter.tsx`

@@ -32,7 +32,7 @@ Ver el detalle en `tasks/todo.md`.
 - [x] T1: Tipos y catálogo
 - [x] T2: Layout y configuración
 - [x] T3: Inicio
-- [ ] T4: Catálogo con filtro
+- [x] T4: Catálogo con filtro
 
 ### Checkpoint: Base
 
