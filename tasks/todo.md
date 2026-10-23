@@ -90,11 +90,11 @@ Verificación estándar en todas: `npm run lint` y `npm run build` sin errores.
 ## Task 8: Pedido por WhatsApp
 **Description:** Formulario (nombre, ciudad, tipo de entrega, forma de pago preferida) que arma el mensaje y abre WhatsApp.
 **Acceptance criteria:**
-- [ ] El mensaje incluye productos, cantidades, total, nombre, ciudad, entrega y pago
-- [ ] Tipos de entrega: delivery en la ciudad, envío a provincia, recojo
-- [ ] Formas de pago: Yape, Plin, transferencia, contraentrega, efectivo
-- [ ] Sin nombre o ciudad no se puede enviar y se avisa
-- [ ] El mensaje usa caracteres y saltos de línea codificados correctamente (tildes, ñ)
+- [x] El mensaje incluye productos, cantidades, total, nombre, ciudad, entrega y pago
+- [x] Tipos de entrega: delivery en la ciudad, envío a provincia, recojo
+- [x] Formas de pago: Yape, Plin, transferencia, contraentrega, efectivo
+- [x] Sin nombre o ciudad no se puede enviar y se avisa
+- [x] El mensaje usa caracteres y saltos de línea codificados correctamente (tildes, ñ)
 **Verification:** revisión manual abriendo el enlace con 1 y con 10 productos; función `buildOrderMessage` pura en `src/lib/whatsapp.ts`.
 **Dependencies:** T7, T2
 **Files likely touched:** `src/lib/whatsapp.ts`, `src/components/OrderForm.tsx`, `src/app/carrito/page.tsx`

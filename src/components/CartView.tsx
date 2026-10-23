@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import CartLine from "@/components/CartLine";
+import OrderForm from "@/components/OrderForm";
 import { cartTotal } from "@/lib/cart";
 import { formatPrice } from "@/lib/format";
 import { useCart } from "@/lib/use-cart";
@@ -40,6 +41,7 @@ export default function CartView() {
         <span>Total</span>
         <span className="text-primary">{formatPrice(cartTotal(items))}</span>
       </p>
+      <OrderForm />
     </div>
   );
 }

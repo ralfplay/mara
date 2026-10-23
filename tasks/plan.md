@@ -40,7 +40,7 @@ Ver el detalle en `tasks/todo.md`.
 - [x] T5: Detalle de producto
 - [x] T6: Estado del carrito
 - [x] T7: Página de carrito
-- [ ] T8: Pedido por WhatsApp
+- [x] T8: Pedido por WhatsApp
 
 ### Checkpoint: Flujo de compra
 
