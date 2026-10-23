@@ -45,7 +45,7 @@ Ver el detalle en `tasks/todo.md`.
 ### Checkpoint: Flujo de compra
 
 ### Phase 3: Cierre
-- [ ] T9: Envíos y pagos
+- [x] T9: Envíos y pagos
 - [ ] T10: SEO y rendimiento
 - [ ] T11: Despliegue
 

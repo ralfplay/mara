@@ -108,9 +108,9 @@ Verificación estándar en todas: `npm run lint` y `npm run build` sin errores.
 ## Task 9: Envíos y pagos
 **Description:** Página con formas de pago, cómo funcionan los envíos a provincias y el delivery en la ciudad, con enlaces a WhatsApp e Instagram.
 **Acceptance criteria:**
-- [ ] Explica los 5 métodos de pago y que se confirman por WhatsApp
-- [ ] Separa delivery en la ciudad y envío a provincias, con texto de ejemplo marcado `TODO` hasta tener datos reales
-- [ ] Enlazada desde cabecera o pie
+- [x] Explica los 5 métodos de pago (Yape y Plin juntos en una entrada) y que se confirman por WhatsApp
+- [x] Separa delivery en la ciudad y envío a provincias, con texto genérico y un `TODO` en el código hasta tener datos reales
+- [x] Enlazada desde cabecera y pie
 **Verification:** revisión manual.
 **Dependencies:** T2
 **Files likely touched:** `src/app/envios-y-pagos/page.tsx`, `src/components/Footer.tsx`
