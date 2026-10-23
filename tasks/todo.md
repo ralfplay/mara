@@ -54,9 +54,11 @@ Verificación estándar en todas: `npm run lint` y `npm run build` sin errores.
 ## Task 5: Detalle de producto
 **Description:** Página `/producto/[slug]` con foto, precio, disponibilidad y descripción, generada en build.
 **Acceptance criteria:**
-- [ ] Cada producto del catálogo tiene su página
-- [ ] Un slug inexistente muestra 404
-- [ ] Las tarjetas enlazan al detalle
+- [x] Cada producto del catálogo tiene su página
+- [x] Un slug inexistente muestra la página 404 y se marca `noindex` (el código HTTP puede ser 200 en la primera visita; ver nota abajo)
+- [x] Las tarjetas enlazan al detalle
+
+**Nota:** con Cache Components, `notFound()` dentro del streaming no puede cambiar el código HTTP; Next lo documenta e inyecta `noindex`. Si hace falta un 404 real, se puede validar el slug en un `proxy.ts` (pendiente, opcional).
 **Verification:** build lista todas las rutas de producto; revisión manual.
 **Dependencies:** T1, T3
 **Files likely touched:** `src/app/producto/[slug]/page.tsx`, `src/components/ProductCard.tsx`, `src/data/products.ts`

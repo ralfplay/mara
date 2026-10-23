@@ -37,7 +37,7 @@ Ver el detalle en `tasks/todo.md`.
 ### Checkpoint: Base
 
 ### Phase 2: Compra
-- [ ] T5: Detalle de producto
+- [x] T5: Detalle de producto
 - [ ] T6: Estado del carrito
 - [ ] T7: Página de carrito
 - [ ] T8: Pedido por WhatsApp

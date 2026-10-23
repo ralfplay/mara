@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import Image from "next/image";
+import Link from "next/link";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/data/products";
 
@@ -10,7 +11,7 @@ const hasImage = (src: string) =>
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <li>
+    <li className="relative">
       <div className="relative aspect-square overflow-hidden rounded-lg border border-border bg-muted">
         {hasImage(product.image) && (
           <Image
@@ -27,7 +28,12 @@ export default function ProductCard({ product }: { product: Product }) {
           </span>
         )}
       </div>
-      <p className="mt-3 text-sm">{product.name}</p>
+      <Link
+        href={`/producto/${product.slug}`}
+        className="mt-3 block text-sm hover:text-primary after:absolute after:inset-0"
+      >
+        {product.name}
+      </Link>
       <p className="text-sm text-primary">{formatPrice(product.price)}</p>
     </li>
   );
