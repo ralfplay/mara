@@ -38,7 +38,7 @@ Ver el detalle en `tasks/todo.md`.
 
 ### Phase 2: Compra
 - [x] T5: Detalle de producto
-- [ ] T6: Estado del carrito
+- [x] T6: Estado del carrito
 - [ ] T7: Página de carrito
 - [ ] T8: Pedido por WhatsApp
 

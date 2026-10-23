@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import AddToCartButton from "@/components/AddToCartButton";
 import { categories, getProduct, products } from "@/data/products";
 import { formatPrice } from "@/lib/format";
 
@@ -60,6 +61,7 @@ export default async function ProductPage({
             <p className="mt-6 text-sm">
               {product.inStock ? "Disponible" : "Agotado"}
             </p>
+            <AddToCartButton slug={product.slug} inStock={product.inStock} />
           </div>
         </div>
       </div>

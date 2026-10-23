@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CartLink from "@/components/CartLink";
 import { siteConfig } from "@/lib/config";
 
 export default function Header() {
@@ -14,23 +15,7 @@ export default function Header() {
         <Link href="/envios-y-pagos" className="hover:text-primary">
           Envíos y pagos
         </Link>
-        <Link href="/carrito" aria-label="Carrito" className="hover:text-primary">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            className="h-6 w-6"
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 8H6.2M9 20.5h.01M17 20.5h.01"
-            />
-          </svg>
-        </Link>
+        <CartLink />
       </nav>
     </header>
   );

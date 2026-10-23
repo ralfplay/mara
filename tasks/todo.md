@@ -67,10 +67,10 @@ Verificación estándar en todas: `npm run lint` y `npm run build` sin errores.
 ## Task 6: Estado del carrito
 **Description:** Contexto de carrito (agregar, quitar, cambiar cantidad, vaciar) guardado en localStorage, con botón "Agregar" en el detalle y contador en la cabecera.
 **Acceptance criteria:**
-- [ ] Agregar dos veces el mismo producto suma la cantidad
-- [ ] El carrito sobrevive a recargar la página
-- [ ] No se pueden agregar productos agotados
-- [ ] Si localStorage falla, la web sigue funcionando
+- [x] Agregar dos veces el mismo producto suma la cantidad
+- [x] El carrito sobrevive a recargar la página
+- [x] No se pueden agregar productos agotados
+- [x] Si localStorage falla, la web sigue funcionando
 **Verification:** revisión manual (agregar, recargar, quitar); lógica pura separada en `src/lib/cart.ts`.
 **Dependencies:** T5
 **Files likely touched:** `src/lib/cart.ts`, `src/components/CartProvider.tsx`, `src/components/AddToCartButton.tsx`, `src/components/Header.tsx`, `src/app/layout.tsx`
