@@ -75,7 +75,7 @@ Primera versión: `npm run lint` y `npm run build` limpios, más revisión manua
 1. Moneda en soles (S/); el precio mostrado es el del producto, sin cálculo de envío.
 2. El catálogo vive en un archivo del repo; no hay panel de administración.
 3. El hosting será Vercel (gratis para empezar).
-4. Estilo visual: crema, negro y dorado, como en la página inicial actual.
+4. Estilo visual: paleta derivada de `#934d29` (terracota), con fondo crema, texto marrón oscuro y dorado solo decorativo. Los tokens están en `src/app/globals.css`. Se usó la estructura de tokens de la skill ui-ux-pro-max; los contrastes de texto se verificaron a ≥ 4.5:1.
 5. El costo de envío entre provincias lo acuerdas por WhatsApp con cada cliente.
 
 ## Open Questions

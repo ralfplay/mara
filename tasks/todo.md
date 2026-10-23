@@ -16,9 +16,9 @@ Verificación estándar en todas: `npm run lint` y `npm run build` sin errores.
 ## Task 2: Layout y configuración
 **Description:** Cabecera y pie compartidos en todas las páginas, con enlaces a catálogo, carrito, Instagram y WhatsApp. Datos de contacto en un solo archivo.
 **Acceptance criteria:**
-- [ ] `src/lib/config.ts` tiene número de WhatsApp, usuario de Instagram y nombre de la tienda (valores de ejemplo con `TODO`)
-- [ ] Cabecera y pie salen en todas las páginas y funcionan en móvil (menú que no desborda)
-- [ ] La cabecera muestra un ícono de carrito (aún sin cantidad)
+- [x] `src/lib/config.ts` tiene número de WhatsApp, usuario de Instagram y nombre de la tienda (valores de ejemplo con `TODO`)
+- [x] Cabecera y pie salen en todas las páginas y funcionan en móvil (menú que no desborda)
+- [x] La cabecera muestra un ícono de carrito (aún sin cantidad)
 **Verification:** revisión manual a 375 px y 1280 px.
 **Dependencies:** None
 **Files likely touched:** `src/lib/config.ts`, `src/components/Header.tsx`, `src/components/Footer.tsx`, `src/app/layout.tsx`

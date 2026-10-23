@@ -30,7 +30,7 @@ Ver el detalle en `tasks/todo.md`.
 
 ### Phase 1: Base
 - [x] T1: Tipos y catálogo
-- [ ] T2: Layout y configuración
+- [x] T2: Layout y configuración
 - [ ] T3: Inicio
 - [ ] T4: Catálogo con filtro
 
