@@ -79,9 +79,9 @@ Verificación estándar en todas: `npm run lint` y `npm run build` sin errores.
 ## Task 7: Página de carrito
 **Description:** `/carrito` con lista de productos, cantidades editables, subtotal por línea y total.
 **Acceptance criteria:**
-- [ ] Cambiar cantidades o quitar un ítem actualiza el total al instante
-- [ ] Con el carrito vacío se ve un mensaje y un enlace al catálogo
-- [ ] El total coincide con la suma de precios por cantidad
+- [x] Cambiar cantidades o quitar un ítem actualiza el total al instante
+- [x] Con el carrito vacío se ve un mensaje y un enlace al catálogo
+- [x] El total coincide con la suma de precios por cantidad
 **Verification:** revisión manual con 3 productos distintos.
 **Dependencies:** T6
 **Files likely touched:** `src/app/carrito/page.tsx`, `src/components/CartLine.tsx`

@@ -39,7 +39,7 @@ Ver el detalle en `tasks/todo.md`.
 ### Phase 2: Compra
 - [x] T5: Detalle de producto
 - [x] T6: Estado del carrito
-- [ ] T7: Página de carrito
+- [x] T7: Página de carrito
 - [ ] T8: Pedido por WhatsApp
 
 ### Checkpoint: Flujo de compra

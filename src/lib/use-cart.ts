@@ -11,7 +11,15 @@ export function useCart() {
     cartStore.getServerSnapshot,
   );
 
+  // false en el servidor y durante la hidratación: evita mostrar "carrito vacío" por un instante.
+  const ready = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
+
   return {
+    ready,
     items,
     count: countItems(items),
     add: (slug: string) => cartStore.update((prev) => addItem(prev, slug)),
