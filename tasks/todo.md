@@ -132,7 +132,9 @@ Verificación estándar en todas: `npm run lint` y `npm run build` sin errores.
 ## Task 11: Despliegue
 **Description:** Subir el repo a GitHub y publicar en Vercel. Requiere tu aprobación y tu cuenta.
 **Acceptance criteria:**
-- [ ] Datos reales en `config.ts` y `products.ts` (sin `TODO`)
+- [x] Contacto, ciudad, horario y empresas de envío reales en `config.ts` (WhatsApp, Instagram, Trujillo, Shalom y Olva Courier)
+- [ ] Productos y fotos reales en `products.ts` y `public/products/` (hoy son 12 productos de demostración inventados y sin fotos)
+- [ ] Repositorio en GitHub y rama `main` con el trabajo
 - [ ] La web publicada abre y el flujo de pedido funciona desde un celular
 **Verification:** probar la URL pública desde un celular.
 **Dependencies:** T10 y las respuestas a las preguntas abiertas

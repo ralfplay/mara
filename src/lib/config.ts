@@ -1,9 +1,11 @@
 export const siteConfig = {
   name: "MARA",
-  // TODO: reemplazar por el número real, con código de país y sin "+" (ej. 51999999999)
-  whatsappNumber: "51999999999",
-  // TODO: reemplazar por el usuario real de Instagram
-  instagramUser: "mara.accesorios",
+  city: "Trujillo",
+  // Número con código de país y sin "+"
+  whatsappNumber: "51963599694",
+  instagramUser: "maraaccesorios.pe",
+  deliveryHours: "de 10:00 a 18:00",
+  carriers: ["Shalom", "Olva Courier"],
 };
 
 export const whatsappUrl = (message?: string) =>

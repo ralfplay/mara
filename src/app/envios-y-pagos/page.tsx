@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
-import { instagramUrl, whatsappUrl } from "@/lib/config";
+import { instagramUrl, siteConfig, whatsappUrl } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Envíos y pagos",
-  description:
-    "Formas de pago, delivery en la ciudad y envíos a provincias de MARA.",
+  description: `Formas de pago, delivery en ${siteConfig.city} y envíos a provincias con ${siteConfig.carriers.join(" y ")}.`,
 };
 
-// TODO: reemplazar las descripciones de ejemplo por los datos reales de la tienda
-// (zonas de delivery, empresa y tiempos de envío a provincias, datos de pago).
 const payments = [
   {
     name: "Yape y Plin",
@@ -20,7 +17,7 @@ const payments = [
   },
   {
     name: "Contraentrega",
-    text: "Pagas al recibir tu pedido, según la zona. Lo confirmamos por WhatsApp.",
+    text: `Solo con delivery en ${siteConfig.city}: pagas al recibir tu pedido. Lo confirmamos por WhatsApp.`,
   },
   {
     name: "Efectivo",
@@ -30,12 +27,12 @@ const payments = [
 
 const shipping = [
   {
-    name: "Delivery en la ciudad",
-    text: "Coordinamos por WhatsApp la zona, el costo y el horario de entrega.",
+    name: `Delivery en ${siteConfig.city}`,
+    text: `Entregamos ${siteConfig.deliveryHours}. Coordinamos por WhatsApp la zona y el costo.`,
   },
   {
     name: "Envío a provincias",
-    text: "Enviamos a todo el país. Coordinamos por WhatsApp la empresa de transporte, el costo y el tiempo de llegada.",
+    text: `Enviamos a todo el país con ${siteConfig.carriers.join(" u ")}. Coordinamos por WhatsApp el costo y el tiempo de llegada según tu destino.`,
   },
   {
     name: "Recojo en tienda",

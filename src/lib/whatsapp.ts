@@ -4,7 +4,7 @@ import { formatPrice } from "@/lib/format";
 import { getProduct } from "@/data/products";
 
 export const deliveryOptions = [
-  { value: "delivery", label: "Delivery en la ciudad" },
+  { value: "delivery", label: `Delivery en ${siteConfig.city}` },
   { value: "provincia", label: "Envío a provincia" },
   { value: "recojo", label: "Recojo en tienda" },
 ] as const;
@@ -39,6 +39,8 @@ export function validateOrder(fields: OrderFields): OrderErrors {
     errors.delivery = "Elige cómo quieres recibir tu pedido.";
   if (!paymentOptions.some((o) => o.value === fields.payment))
     errors.payment = "Elige tu forma de pago.";
+  else if (fields.payment === "contraentrega" && fields.delivery !== "delivery")
+    errors.payment = `La contraentrega solo está disponible con delivery en ${siteConfig.city}.`;
   return errors;
 }
 
