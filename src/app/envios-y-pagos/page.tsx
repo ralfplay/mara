@@ -55,13 +55,18 @@ function Section({
   items: { name: string; text: string }[];
 }) {
   return (
-    <section className="mt-12">
-      <h2 className="text-2xl font-light">{title}</h2>
-      <ul className="mt-4 divide-y divide-border border-y border-border">
+    <section className="flex flex-wrap gap-x-20 gap-y-6">
+      <h2 className="display flex-[1_1_16rem] text-[clamp(2.125rem,3.6vw,3.25rem)] leading-[1.05]">
+        {title}
+      </h2>
+      <ul className="flex-[2_1_30rem] border-b border-foreground">
         {items.map((i) => (
-          <li key={i.name} className="py-4">
-            <h3 className="text-primary">{i.name}</h3>
-            <p className="mt-1 text-muted-foreground">{i.text}</p>
+          <li
+            key={i.name}
+            className="flex flex-col gap-x-8 gap-y-1 border-t border-foreground py-5 sm:flex-row"
+          >
+            <h3 className="caps w-48 shrink-0 pt-0.5">{i.name}</h3>
+            <p className="text-muted-foreground">{i.text}</p>
           </li>
         ))}
       </ul>
@@ -71,51 +76,71 @@ function Section({
 
 export default function ShippingAndPaymentsPage() {
   return (
-    <main className="flex-1 px-6 py-12 md:px-12">
-      <div className="mx-auto max-w-3xl">
-        <h1 className="text-center text-3xl font-light">Envíos y pagos</h1>
-        <p className="mt-4 text-center text-muted-foreground">
+    <main className="flex-1">
+      <section className="on-ink flex flex-wrap items-end justify-between gap-x-12 gap-y-5 bg-ink px-6 pb-14 pt-16 text-on-ink md:px-12">
+        <div className="flex flex-col gap-3.5">
+          <p className="eyebrow text-gold">Información</p>
+          <h1 className="display text-[clamp(3rem,7vw,6.5rem)] leading-[0.95]">
+            Envíos y <em className="text-gold">pagos</em>
+          </h1>
+        </div>
+        <p className="max-w-sm text-on-ink-muted">
           Todos los pedidos se confirman por WhatsApp. No cobramos nada en la
           web.
         </p>
+      </section>
 
-        <section className="mt-12">
-          <h2 className="text-2xl font-light">Cómo comprar</h2>
-          <ol className="mt-4 list-decimal space-y-2 pl-6">
-            {steps.map((s) => (
-              <li key={s}>{s}</li>
+      <div className="flex flex-col gap-20 px-6 py-20 md:px-12">
+        <section className="flex flex-wrap gap-x-20 gap-y-6">
+          <h2 className="display flex-[1_1_16rem] text-[clamp(2.125rem,3.6vw,3.25rem)] leading-[1.05]">
+            Cómo comprar
+          </h2>
+          <ol className="flex-[2_1_30rem] border-b border-foreground">
+            {steps.map((s, i) => (
+              <li
+                key={s}
+                className="flex items-baseline gap-6 border-t border-foreground py-5"
+              >
+                <span
+                  aria-hidden="true"
+                  className="display w-12 shrink-0 text-4xl italic text-primary"
+                >
+                  0{i + 1}
+                </span>
+                <span className="text-lg">{s}</span>
+              </li>
             ))}
           </ol>
         </section>
 
         <Section title="Formas de pago" items={payments} />
         <Section title="Entregas" items={shipping} />
-
-        <section className="mt-12 text-center">
-          <h2 className="text-2xl font-light">¿Tienes dudas?</h2>
-          <p className="mt-2 text-muted-foreground">
-            Escríbenos y te ayudamos con tu pedido.
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <a
-              href={whatsappUrl("Hola MARA, tengo una consulta.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center rounded-full bg-primary px-8 text-sm text-on-primary transition hover:bg-secondary"
-            >
-              Escribir por WhatsApp
-            </a>
-            <a
-              href={instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center rounded-full border border-primary px-8 text-sm text-primary transition hover:bg-primary hover:text-on-primary"
-            >
-              Ver Instagram
-            </a>
-          </div>
-        </section>
       </div>
+
+      <section className="on-primary flex flex-col items-center gap-5 bg-primary px-6 py-20 text-center text-on-primary md:px-12">
+        <h2 className="display text-[clamp(2.375rem,4.4vw,4rem)] italic">
+          ¿Tienes dudas?
+        </h2>
+        <p>Escríbenos y te ayudamos con tu pedido.</p>
+        <div className="mt-2 flex flex-wrap justify-center gap-4">
+          <a
+            href={whatsappUrl("Hola MARA, tengo una consulta.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn bg-ink text-on-ink hover:bg-secondary"
+          >
+            Escribir por WhatsApp
+          </a>
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn border border-on-primary hover:bg-on-primary hover:text-primary"
+          >
+            Ver Instagram
+          </a>
+        </div>
+      </section>
     </main>
   );
 }

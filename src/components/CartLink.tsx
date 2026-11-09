@@ -14,14 +14,14 @@ export default function CartLink() {
           ? `Carrito, ${count} ${count === 1 ? "producto" : "productos"}`
           : "Carrito"
       }
-      className="relative hover:text-primary"
+      className="relative flex h-11 w-11 items-center justify-center hover:text-gold"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="1.3"
         className="h-6 w-6"
         aria-hidden="true"
       >
@@ -32,7 +32,7 @@ export default function CartLink() {
         />
       </svg>
       {count > 0 && (
-        <span className="absolute -right-2 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-xs text-on-primary">
+        <span className="absolute right-0 top-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-gold px-1 text-xs font-medium tracking-normal text-ink">
           {count}
         </span>
       )}

@@ -1,40 +1,29 @@
-import fs from "node:fs";
-import path from "node:path";
-import Image from "next/image";
 import Link from "next/link";
+import ProductMedia from "@/components/ProductMedia";
 import { formatPrice } from "@/lib/format";
-import type { Product } from "@/data/products";
-
-// Hasta tener las fotos reales, se muestra un recuadro en vez de una imagen rota.
-const hasImage = (src: string) =>
-  fs.existsSync(path.join(process.cwd(), "public", src));
+import { categories, type Product } from "@/data/products";
 
 export default function ProductCard({ product }: { product: Product }) {
+  const categoryLabel = categories.find((c) => c.slug === product.category)?.label;
+
   return (
-    <li className="relative">
-      <div className="relative aspect-square overflow-hidden rounded-lg border border-border bg-muted">
-        {hasImage(product.image) && (
-          <Image
-            src={product.image}
-            alt={product.name}
-            fill
-            sizes="(min-width: 768px) 25vw, 50vw"
-            className="object-cover"
-          />
-        )}
-        {!product.inStock && (
-          <span className="absolute left-2 top-2 rounded-full bg-secondary px-3 py-1 text-xs text-on-primary">
-            Agotado
-          </span>
-        )}
+    <li className="group relative flex flex-col gap-3">
+      <ProductMedia
+        product={product}
+        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+      />
+      <div className="flex items-baseline justify-between gap-3">
+        <Link
+          href={`/producto/${product.slug}`}
+          className="display text-2xl leading-tight transition group-hover:text-primary after:absolute after:inset-0"
+        >
+          {product.name}
+        </Link>
+        <p className="whitespace-nowrap font-normal">{formatPrice(product.price)}</p>
       </div>
-      <Link
-        href={`/producto/${product.slug}`}
-        className="mt-3 block text-sm hover:text-primary after:absolute after:inset-0"
-      >
-        {product.name}
-      </Link>
-      <p className="text-sm text-primary">{formatPrice(product.price)}</p>
+      <p className="-mt-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+        {categoryLabel}
+      </p>
     </li>
   );
 }

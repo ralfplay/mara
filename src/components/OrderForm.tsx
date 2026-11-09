@@ -13,12 +13,13 @@ import {
 } from "@/lib/whatsapp";
 
 const field =
-  "mt-2 block min-h-11 w-full rounded-lg border bg-card px-4 py-2 text-base";
-const border = (error?: string) => (error ? "border-red-700" : "border-border");
+  "block min-h-13 w-full border bg-ink px-4 py-2 text-base text-on-ink";
+const label = "text-xs font-normal uppercase tracking-[0.22em] text-gold";
+const border = (error?: string) => (error ? "border-[#ffb4a1]" : "border-[#8a7667]");
 
 function FieldError({ id, message }: { id: string; message?: string }) {
   return message ? (
-    <p id={id} className="mt-1 text-sm text-red-700">
+    <p id={id} className="text-sm text-[#ffb4a1]">
       {message}
     </p>
   ) : null;
@@ -57,14 +58,14 @@ export default function OrderForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="mt-12 border-t border-border pt-8">
-      <h2 className="text-xl font-light">Tus datos</h2>
-      <p className="mt-1 text-sm text-muted-foreground">
+    <form onSubmit={onSubmit} noValidate className="on-ink flex flex-col gap-6 bg-ink px-6 py-10 text-on-ink sm:px-10 sm:py-12">
+      <h2 className="display text-[2.75rem]">Tus datos</h2>
+      <p className="-mt-3 text-on-ink-muted">
         Te enviaremos el pedido por WhatsApp y ahí confirmamos el pago y el envío.
       </p>
 
-      <div className="mt-6">
-        <label htmlFor="name">Nombre</label>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="name" className={label}>Nombre</label>
         <input
           id="name"
           name="name"
@@ -77,8 +78,8 @@ export default function OrderForm() {
         <FieldError id="name-error" message={errors.name} />
       </div>
 
-      <div className="mt-6">
-        <label htmlFor="city">Ciudad</label>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="city" className={label}>Ciudad</label>
         <input
           id="city"
           name="city"
@@ -92,18 +93,18 @@ export default function OrderForm() {
       </div>
 
       <fieldset
-        className="mt-6"
+        className="flex flex-col gap-1"
         aria-describedby={errors.delivery ? "delivery-error" : undefined}
       >
-        <legend>Entrega</legend>
-        <div className="mt-2 flex flex-col gap-1">
+        <legend className={`${label} mb-2`}>Entrega</legend>
+        <div className="flex flex-col gap-1">
           {deliveryOptions.map((o) => (
             <label key={o.value} className="flex min-h-11 items-center gap-3">
               <input
                 type="radio"
                 name="delivery"
                 value={o.value}
-                className="h-5 w-5 accent-primary"
+                className="h-5 w-5 accent-gold"
               />
               {o.label}
             </label>
@@ -112,8 +113,8 @@ export default function OrderForm() {
         <FieldError id="delivery-error" message={errors.delivery} />
       </fieldset>
 
-      <div className="mt-6">
-        <label htmlFor="payment">Forma de pago</label>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="payment" className={label}>Forma de pago</label>
         <select
           id="payment"
           name="payment"
@@ -136,19 +137,19 @@ export default function OrderForm() {
 
       <button
         type="submit"
-        className="mt-8 min-h-11 w-full cursor-pointer rounded-full bg-primary px-8 py-3 text-on-primary transition hover:bg-secondary"
+        className="btn btn-gold mt-2 w-full"
       >
         Enviar pedido por WhatsApp
       </button>
 
       {sentUrl && (
-        <p role="status" className="mt-4 text-sm">
+        <p role="status" className="text-sm">
           Se abrió WhatsApp con tu pedido. Si no se abrió,{" "}
           <a
             href={sentUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary underline"
+            className="text-gold underline"
           >
             toca aquí
           </a>

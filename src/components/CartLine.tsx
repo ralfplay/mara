@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import ProductArt from "@/components/ProductArt";
 import { MAX_QUANTITY } from "@/lib/cart";
 import { formatPrice } from "@/lib/format";
 import { useCart } from "@/lib/use-cart";
 import type { Product } from "@/data/products";
 
 const qtyButton =
-  "flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-border bg-card text-lg transition hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border disabled:hover:text-foreground";
+  "flex h-full w-11 cursor-pointer items-center justify-center text-xl transition hover:bg-foreground hover:text-background disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-foreground";
 
 export default function CartLine({
   product,
@@ -19,20 +20,34 @@ export default function CartLine({
   const { setQty, remove } = useCart();
 
   return (
-    <li className="flex flex-col gap-4 border-b border-border py-6 sm:flex-row sm:items-center sm:justify-between">
-      <div>
+    <li className="flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-foreground py-6">
+      <div
+        aria-hidden="true"
+        className="flex h-28 w-24 shrink-0 items-center justify-center bg-ink-soft"
+      >
+        <ProductArt slug={product.slug} category={product.category} className="w-3/5" />
+      </div>
+      <div className="flex min-w-40 flex-1 flex-col gap-1">
         <Link
           href={`/producto/${product.slug}`}
-          className="hover:text-primary"
+          className="display text-3xl leading-tight hover:text-primary"
         >
           {product.name}
         </Link>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
           {formatPrice(product.price)} c/u
         </p>
+        <button
+          type="button"
+          aria-label={`Quitar ${product.name} del carrito`}
+          onClick={() => remove(product.slug)}
+          className="min-h-11 cursor-pointer self-start text-sm underline hover:text-primary"
+        >
+          Quitar
+        </button>
       </div>
-      <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2">
+      <div className="flex items-center gap-6">
+        <div className="flex h-12 items-center border border-foreground">
           <button
             type="button"
             aria-label={`Quitar una unidad de ${product.name}`}
@@ -42,7 +57,7 @@ export default function CartLine({
           >
             −
           </button>
-          <span aria-live="polite" className="w-8 text-center">
+          <span aria-live="polite" className="w-9 text-center font-normal">
             {quantity}
           </span>
           <button
@@ -55,16 +70,9 @@ export default function CartLine({
             +
           </button>
         </div>
-        <p className="w-24 text-right text-primary">
+        <p className="w-24 text-right text-lg font-normal">
           {formatPrice(product.price * quantity)}
         </p>
-        <button
-          type="button"
-          onClick={() => remove(product.slug)}
-          className="min-h-11 cursor-pointer px-2 text-sm underline hover:text-primary"
-        >
-          Quitar
-        </button>
       </div>
     </li>
   );

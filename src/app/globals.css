@@ -1,17 +1,24 @@
 @import "tailwindcss";
 
-/* Paleta MARA, derivada de #934d29 (contrastes verificados: texto >= 4.5:1) */
+/* Paleta MARA "noche y oro": tinta cálida, marfil, cobre de marca (#934d29) y dorado.
+   Contrastes verificados (texto >= 4.5:1): el dorado solo se usa como texto sobre tinta. */
 :root {
-  --background: #fbf6f1;
-  --foreground: #2a1a12;
-  --card: #ffffff;
+  --background: #f8f3ec;
+  --foreground: #1a1310;
+  --card: #fffdfa;
   --primary: #934d29;
   --on-primary: #ffffff;
   --secondary: #5c2f18;
-  --accent: #c9a46c; /* solo decorativo: no usar como color de texto sobre fondo claro */
-  --muted: #f1e6dc;
-  --muted-foreground: #6b5446;
-  --border: #e6d5c6;
+  --accent: #c9a46c;
+  --muted: #ede3d6;
+  --muted-foreground: #5e4a3d;
+  --border: #e4d6c7;
+  --ink: #1a1310;
+  --ink-soft: #211813;
+  --ink-border: #3a2c24;
+  --on-ink: #f8f3ec;
+  --on-ink-muted: #d8cbbd;
+  --gold: #c9a46c;
 }
 
 @theme inline {
@@ -25,16 +32,102 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-border: var(--ink-border);
+  --color-on-ink: var(--on-ink);
+  --color-on-ink-muted: var(--on-ink-muted);
+  --color-gold: var(--gold);
+  --font-sans: var(--font-jost);
+  --font-serif: var(--font-cormorant);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-jost), Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
 }
 
 :focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
+}
+
+/* Sobre fondos de tinta o cobre el foco va en dorado/marfil para que se vea. */
+.on-ink :focus-visible,
+.on-ink:focus-visible {
+  outline-color: var(--gold);
+}
+.on-primary :focus-visible {
+  outline-color: var(--on-ink);
+}
+
+@layer components {
+  .display {
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+  .caps {
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .btn {
+    display: inline-flex;
+    min-height: 3.25rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 2.25rem;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      background-color 0.2s,
+      color 0.2s,
+      border-color 0.2s;
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .btn-gold:hover {
+    background: var(--on-ink);
+  }
+  .btn-ink {
+    background: var(--ink);
+    color: var(--on-ink);
+  }
+  .btn-ink:hover {
+    background: var(--primary);
+  }
+  .btn-outline-gold {
+    border: 1px solid var(--gold);
+    color: var(--on-ink);
+  }
+  .btn-outline-gold:hover {
+    background: var(--gold);
+    color: var(--ink);
+  }
+  .btn-outline {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+  }
+  .btn-outline:hover {
+    background: var(--primary);
+    color: var(--on-primary);
+  }
 }

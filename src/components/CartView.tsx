@@ -15,12 +15,9 @@ export default function CartView() {
 
   if (items.length === 0) {
     return (
-      <div className="text-center">
-        <p className="text-muted-foreground">Tu carrito está vacío.</p>
-        <Link
-          href="/catalogo"
-          className="mt-6 inline-block rounded-full bg-primary px-8 py-3 text-sm text-on-primary transition hover:bg-secondary"
-        >
+      <div className="flex flex-col items-start gap-6 border-t border-foreground pt-8">
+        <p className="text-lg text-muted-foreground">Tu carrito está vacío.</p>
+        <Link href="/catalogo" className="btn btn-ink">
           Ver catálogo
         </Link>
       </div>
@@ -28,19 +25,30 @@ export default function CartView() {
   }
 
   return (
-    <div className="mx-auto max-w-3xl">
-      <ul className="border-t border-border">
-        {items.map((item) => {
-          const product = getProduct(item.slug);
-          return product ? (
-            <CartLine key={item.slug} product={product} quantity={item.quantity} />
-          ) : null;
-        })}
-      </ul>
-      <p className="mt-6 flex justify-between text-lg">
-        <span>Total</span>
-        <span className="text-primary">{formatPrice(cartTotal(items))}</span>
-      </p>
+    <div className="grid items-start gap-x-16 gap-y-12 lg:grid-cols-[1.3fr_1fr]">
+      <div className="flex flex-col gap-6">
+        <ul>
+          {items.map((item) => {
+            const product = getProduct(item.slug);
+            return product ? (
+              <CartLine key={item.slug} product={product} quantity={item.quantity} />
+            ) : null;
+          })}
+        </ul>
+        <p className="flex items-baseline justify-between gap-6 border-y border-foreground py-7">
+          <span className="caps tracking-[0.24em]">Total</span>
+          <span className="display text-5xl">{formatPrice(cartTotal(items))}</span>
+        </p>
+        <p className="text-muted-foreground">
+          El costo de envío se coordina por WhatsApp según tu destino.
+        </p>
+        <Link
+          href="/catalogo"
+          className="caps self-start border-b border-primary pb-1.5 pt-3 text-primary hover:border-secondary hover:text-secondary"
+        >
+          ← Seguir comprando
+        </Link>
+      </div>
       <OrderForm />
     </div>
   );

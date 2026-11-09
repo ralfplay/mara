@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useCart } from "@/lib/use-cart";
 
 export default function AddToCartButton({
@@ -18,7 +19,7 @@ export default function AddToCartButton({
       <button
         type="button"
         disabled
-        className="mt-8 cursor-not-allowed rounded-full bg-muted px-8 py-3 text-sm text-muted-foreground"
+        className="btn cursor-not-allowed bg-muted text-muted-foreground"
       >
         Agotado
       </button>
@@ -26,20 +27,27 @@ export default function AddToCartButton({
   }
 
   return (
-    <div className="mt-8">
+    <>
       <button
         type="button"
         onClick={() => {
           add(slug);
           setAdded(true);
         }}
-        className="cursor-pointer rounded-full bg-primary px-8 py-3 text-sm text-on-primary transition hover:bg-secondary"
+        className="btn btn-ink font-medium"
       >
         Agregar al carrito
       </button>
-      <p role="status" className="mt-3 text-sm text-primary">
-        {added ? "Agregado. Puedes verlo en el carrito." : ""}
+      <p role="status" className="empty:hidden">
+        {added && (
+          <>
+            Agregado.{" "}
+            <Link href="/carrito" className="text-primary underline">
+              Ver carrito
+            </Link>
+          </>
+        )}
       </p>
-    </div>
+    </>
   );
 }
